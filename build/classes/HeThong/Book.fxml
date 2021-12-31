@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0" prefWidth="929.0" stylesheets="@styleCss.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HeThong.BookController">
+  <tabs>
+    <Tab text="Book">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="607.0" prefWidth="893.0">
+               <children>
+                  <AnchorPane id="AnchorPane" prefHeight="608.0" prefWidth="929.0">
+                     <children>
+                        <Text layoutX="25.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Local" AnchorPane.leftAnchor="25.0" />
+                        <Text layoutX="25.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DayIssue" AnchorPane.leftAnchor="25.0" />
+                        <Text layoutX="25.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BookCode" AnchorPane.leftAnchor="25.0" />
+                        <Text layoutX="25.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BookName" AnchorPane.leftAnchor="25.0" />
+                        <Text layoutX="25.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Author" AnchorPane.leftAnchor="25.0" />
+                        <Text layoutX="25.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category" AnchorPane.leftAnchor="25.0" />
+                        <Text layoutX="25.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="YearIssue" AnchorPane.leftAnchor="25.0" />
+                        <TextField fx:id="txtma" layoutX="142.0" layoutY="70.0" promptText="Ex : M01,M02" />
+                        <TextField fx:id="txtten" layoutX="142.0" layoutY="113.0" promptText="Ex : Kiểm Thử phần mềm" />
+                        <TextField fx:id="txttacGia" layoutX="142.0" layoutY="156.0" promptText="Ex: Nguyễn Văn A" />
+                        <TextField fx:id="txtmota" layoutX="142.0" layoutY="200.0" promptText="Ex : 3000 trang" />
+                        <TextField fx:id="txtViTri" layoutX="142.0" layoutY="333.0" />
+                        <Button fx:id="btnLuu" layoutX="38.0" layoutY="384.0" mnemonicParsing="false" onAction="#addBook" text="Save" />
+                        <Button fx:id="btnThoat" layoutX="33.0" layoutY="453.0" mnemonicParsing="false" onAction="#back" text="Return" />
+                        <TextField fx:id="txttimkiem" layoutX="357.0" layoutY="50.0" prefHeight="25.0" prefWidth="511.0" promptText="Nhập tên , sách ,,..... cần tìm" />
+                        <TableView fx:id="tbBook" layoutX="357.0" layoutY="101.0" prefHeight="427.0" prefWidth="550.0" />
+                        <Button layoutX="136.0" layoutY="384.0" mnemonicParsing="false" onAction="#updateB" text="Update" />
+                        <Button layoutX="136.0" layoutY="453.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
+                        <TextField fx:id="txtNXB" layoutX="142.0" layoutY="243.0" promptText="Ex : 2020" />
+                        <TextField fx:id="txtNgayNhapSach" layoutX="142.0" layoutY="284.0" promptText="EX : 20" />
+                     </children>
+                  </AnchorPane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="BorrowBookReturns">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="578.0" prefWidth="926.0">
+               <children>
+                  <AnchorPane id="AnchorPane" layoutX="-8.0" prefHeight="608.0" prefWidth="923.0">
+                     <children>
+                        <TableView fx:id="tbmuon" layoutX="25.0" layoutY="208.0" prefHeight="349.0" prefWidth="879.0" />
+                        <Button layoutX="826.0" layoutY="59.0" mnemonicParsing="false" onAction="#muonSach" text="BookBorrow" />
+                        <Button layoutX="395.0" layoutY="154.0" mnemonicParsing="false" onAction="#traSach" text="BookReturn" />
+                        <TextField fx:id="txtma1" editable="false" layoutX="432.0" layoutY="33.0" prefHeight="31.0" prefWidth="371.0" promptText="ID Sách" />
+                        <TextField fx:id="txtten1" editable="false" layoutX="434.0" layoutY="74.0" prefHeight="31.0" prefWidth="368.0" promptText="Tên Sách" />
+                        <TextField fx:id="txtIdUser" layoutX="165.0" layoutY="39.0" prefHeight="41.0" prefWidth="142.0" promptText="Nhập ID" />
+                        <Button layoutX="762.0" layoutY="154.0" mnemonicParsing="false" onAction="#loadFull" text="Book List" />
+                        <TableView fx:id="tbmuon1" layoutX="35.0" layoutY="205.0" prefHeight="362.0" prefWidth="873.0" />
+                        <DatePicker fx:id="dateReturn" editable="false" layoutX="149.0" layoutY="154.0" />
+                        <Text layoutX="35.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DateReturn" />
+                        <Text layoutX="48.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID member" wrappingWidth="148.4482421875" />
+                        <Button fx:id="btnThoat1" layoutX="842.0" layoutY="154.0" mnemonicParsing="false" onAction="#back" text="Returns" />
+                        <Button layoutX="667.0" layoutY="154.0" mnemonicParsing="false" onAction="#loadbrow" text="BorrowList" />
+                     </children>
+                  </AnchorPane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+     <Tab onSelectionChanged="#loadThongKe" text="Statistical">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="578.0" prefWidth="926.0">
+               <children>
+                  <AnchorPane id="AnchorPane" prefHeight="608.0" prefWidth="816.0">
+                     <children>
+                        <ListView fx:id="listViewData" layoutX="95.0" layoutY="94.0" prefHeight="387.0" prefWidth="631.0" />
+                        <Text fill="#4b06bf" layoutX="321.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STATISTICAL" textAlignment="CENTER">
+                           <font>
+                              <Font size="35.0" />
+                           </font></Text>
+                        <Button fx:id="btnThoat2" layoutX="754.0" layoutY="582.0" mnemonicParsing="false" onAction="#back" text="Quay Lại" />
+                     </children>
+                  </AnchorPane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+         <Tab text="Member">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="578.0" prefWidth="926.0">
+               <children>
+                  <AnchorPane id="AnchorPane" prefHeight="608.0" prefWidth="923.0">
+                     <children>
+                        <ListView fx:id="listViewData1" layoutX="146.0" layoutY="113.0" prefHeight="422.0" prefWidth="638.0" />
+                        <TextField fx:id="txtLoadMember" layoutX="246.0" layoutY="40.0" promptText="Ex : Trần Văn A" />
+                        <Text layoutX="146.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FullName" />
+                        <TableView fx:id="tbMem" layoutX="117.0" layoutY="105.0" prefHeight="449.0" prefWidth="697.0" />
+                        <Button layoutX="474.0" layoutY="40.0" mnemonicParsing="false" onAction="#loadMemberCard" text="MemberCard" />
+                        <Button fx:id="btFullMem" layoutX="627.0" layoutY="40.0" mnemonicParsing="false" onAction="#loadMem" text="Members" />
+                        <Button fx:id="btnThoat21" layoutX="856.0" layoutY="569.0" mnemonicParsing="false" onAction="#back" text="Return" />
+                     </children>
+                  </AnchorPane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>
